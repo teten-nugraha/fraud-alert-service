@@ -5,7 +5,7 @@ spring:
       group-id: fraud-detection-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       properties:
         spring:
           json:
@@ -20,11 +20,9 @@ spring:
         bootstrap.servers: localhost:9092
         default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
         default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
-
-
   mail:
     host: sandbox.smtp.mailtrap.io
-    port: 25
+    port: 2525
     username: 8edbe09af1e5f5
     password: 62bde491f1e7d5
     properties:
@@ -32,6 +30,6 @@ spring:
         smtp:
           auth: true
           starttls:
-            enable: false
+            enable: true
 server:
   port: 9091

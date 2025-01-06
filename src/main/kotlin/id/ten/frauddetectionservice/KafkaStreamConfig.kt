@@ -37,8 +37,8 @@ class FraudDetectionStreams {
             )
             .toStream()
             .filter { _, total -> total > 100000000.0 }
-            .map { key, _ -> KeyValue(key.key(), "Fraud detected for user: ${key.key()}") }
-            .to("fraud-alerts", Produced.with(stringSerde, stringSerde))
+            .map { key, _ -> KeyValue(key.key(), "Fraud detected for user: ${key.key()} and total transaction is greater than equals USD 100.000.000") }
+            .to("fraud-alerts2", Produced.with(stringSerde, stringSerde))
 
         return transactionStream
     }

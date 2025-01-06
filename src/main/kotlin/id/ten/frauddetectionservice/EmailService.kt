@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service
 @Service
 class EmailService(private val mailSender: JavaMailSender) {
 
-    fun sendFraudAlertEmail(alert: FraudAlert) {
-        val message = SimpleMailMessage()
-        message.setTo("security-team@example.com")
-        message.subject = "Fraud Alert Detected"
-        message.text = """
-            Fraud detected for sender: ${alert.sender}.
-            Total Amount Transferred: ${alert.totalAmount}.
-            Date: ${alert.date}.
-        """.trimIndent()
+    fun sendFraudAlertEmail(alert: String) {
+        val message = SimpleMailMessage().apply {
+            from = "test@mail.com"
+            setTo("security-team@example.com")
+            subject = "Fraud Alert Detected"
+            text = alert
+        }
         mailSender.send(message)
     }
 }
