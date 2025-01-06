@@ -21,10 +21,10 @@ spring:
         default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
         default.value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
   mail:
-    host: sandbox.smtp.mailtrap.io
-    port: 2525
-    username: 8edbe09af1e5f5
-    password: 62bde491f1e7d5
+    host: <email host>
+    port: <email port>
+    username: <email username>
+    password: <email password>
     properties:
       mail:
         smtp:
